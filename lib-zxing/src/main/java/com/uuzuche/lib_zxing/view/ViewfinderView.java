@@ -30,7 +30,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.google.zxing.ResultPoint;
-import com.uuzuche.lib_zxing.DisplayUtil;
+import com.uuzuche.lib_zxing.utils.DisplayUtil;
 import com.uuzuche.lib_zxing.R;
 import com.uuzuche.lib_zxing.camera.CameraManager;
 

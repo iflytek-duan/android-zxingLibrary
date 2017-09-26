@@ -1,12 +1,12 @@
-package com.uuzuche.lib_zxing;
+package com.uuzuche.lib_zxing.utils;
 
 import android.content.Context;
 
 /**
  * Created by aaron on 16/8/3.
+ * 屏幕相关工具类
  */
-public class DisplayUtil
-{
+public class DisplayUtil {
 
     public static int screenWidthPx; //屏幕宽 px
     public static int screenhightPx; //屏幕高 px
@@ -14,7 +14,6 @@ public class DisplayUtil
     public static int densityDPI;//屏幕密度
     public static float screenWidthDip;//  dp单位
     public static float screenHightDip;//  dp单位
-
 
 
     /**

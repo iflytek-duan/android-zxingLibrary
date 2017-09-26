@@ -3,7 +3,7 @@ package com.uuzuche.lib_zxing.activity;
 import android.content.Context;
 import android.util.DisplayMetrics;
 
-import com.uuzuche.lib_zxing.DisplayUtil;
+import com.uuzuche.lib_zxing.utils.DisplayUtil;
 
 /**
  * Created by aaron on 16/9/7.
