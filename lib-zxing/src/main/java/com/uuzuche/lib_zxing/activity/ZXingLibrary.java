@@ -7,8 +7,8 @@ import com.uuzuche.lib_zxing.utils.DisplayUtil;
 
 /**
  * Created by aaron on 16/9/7.
+ * libray初始化工具类
  */
-
 public class ZXingLibrary {
     private boolean playBeep = true;// 标识是否播放闹铃，默认为播放
     private boolean vibrate = true;// 标识是否开启震动，默认开启

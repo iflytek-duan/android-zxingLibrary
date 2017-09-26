@@ -116,8 +116,8 @@ public class CaptureFragment extends Fragment implements SurfaceHolder.Callback 
     /**
      * Handler scan result
      *
-     * @param result
-     * @param barcode
+     * @param result  扫描结果
+     * @param barcode 二维码bitmap
      */
     public void handleDecode(Result result, Bitmap barcode) {
         inactivityTimer.onActivity();

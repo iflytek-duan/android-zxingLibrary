@@ -30,7 +30,7 @@ import java.util.concurrent.CountDownLatch;
 
 /**
  * This thread does all the heavy lifting of decoding the images.
- * �����߳�
+ * 此线程负责完成图像解码的所有繁重工作.
  */
 final class DecodeThread extends Thread {
 
@@ -48,10 +48,10 @@ final class DecodeThread extends Thread {
         this.fragment = fragment;
         handlerInitLatch = new CountDownLatch(1);
 
-        hints = new Hashtable<DecodeHintType, Object>(3);
+        hints = new Hashtable<>(3);
 
         if (decodeFormats == null || decodeFormats.isEmpty()) {
-            decodeFormats = new Vector<BarcodeFormat>();
+            decodeFormats = new Vector<>();
             decodeFormats.addAll(DecodeFormatManager.ONE_D_FORMATS);
             decodeFormats.addAll(DecodeFormatManager.QR_CODE_FORMATS);
             decodeFormats.addAll(DecodeFormatManager.DATA_MATRIX_FORMATS);

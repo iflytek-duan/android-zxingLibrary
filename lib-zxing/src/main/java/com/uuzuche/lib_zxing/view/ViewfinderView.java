@@ -80,8 +80,8 @@ public final class ViewfinderView extends View {
     /**
      * 初始化内部框的大小
      *
-     * @param context
-     * @param attrs
+     * @param context context
+     * @param attrs attributeSet
      */
     private void initInnerRect(Context context, AttributeSet attrs) {
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ViewfinderView);
@@ -151,7 +151,7 @@ public final class ViewfinderView extends View {
             if (currentPossible.isEmpty()) {
                 lastPossibleResultPoints = null;
             } else {
-                possibleResultPoints = new HashSet<ResultPoint>(5);
+                possibleResultPoints = new HashSet<>(5);
                 lastPossibleResultPoints = currentPossible;
                 paint.setAlpha(OPAQUE);
                 paint.setColor(resultPointColor);
@@ -189,8 +189,8 @@ public final class ViewfinderView extends View {
     /**
      * 绘制移动扫描线
      *
-     * @param canvas
-     * @param frame
+     * @param canvas canvas
+     * @param frame frame
      */
     private void drawScanLight(Canvas canvas, Rect frame) {
 
@@ -219,8 +219,8 @@ public final class ViewfinderView extends View {
     /**
      * 绘制取景框边框
      *
-     * @param canvas
-     * @param frame
+     * @param canvas canvas
+     * @param frame frame
      */
     private void drawFrameBounds(Canvas canvas, Rect frame) {
 
