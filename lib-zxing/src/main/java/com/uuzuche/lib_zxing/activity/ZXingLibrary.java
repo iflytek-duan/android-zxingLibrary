@@ -14,7 +14,6 @@ public class ZXingLibrary {
     private boolean vibrate = true;// 标识是否开启震动，默认开启
 
     private ZXingLibrary() {
-        throw new UnsupportedOperationException("cannot be instantiated");
     }
 
     private static class ZXingLibraryHolders {
