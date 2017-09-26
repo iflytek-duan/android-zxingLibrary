@@ -121,7 +121,6 @@ public class CaptureFragment extends Fragment implements SurfaceHolder.Callback 
      */
     public void handleDecode(Result result, Bitmap barcode) {
         inactivityTimer.onActivity();
-        playBeepSoundAndVibrate();
 
         if (result == null || TextUtils.isEmpty(result.getText())) {
             if (analyzeCallback != null) {
@@ -132,6 +131,8 @@ public class CaptureFragment extends Fragment implements SurfaceHolder.Callback 
                 analyzeCallback.onAnalyzeSuccess(barcode, result.getText());
             }
         }
+
+        playBeepSoundAndVibrate();
     }
 
     private void initCamera(SurfaceHolder surfaceHolder) {
