@@ -38,7 +38,7 @@ public class CaptureFragment extends Fragment implements SurfaceHolder.Callback 
     private boolean hasSurface;
     private Vector<BarcodeFormat> decodeFormats;
     private String characterSet;
-    private InactivityTimer inactivityTimer;
+    private InactivityTimer inactivityTimer;// 一个活动内的计时器
     private MediaPlayer mediaPlayer;
     private static final float BEEP_VOLUME = 0.10f;// 闹铃音量系数
     private SurfaceView surfaceView;

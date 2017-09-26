@@ -21,6 +21,7 @@ import android.content.DialogInterface;
 
 /**
  * Simple listener used to exit the app in a few cases.
+ * 简单的监听用于在少数情况下退出应用程序.
  */
 public final class FinishListener
         implements DialogInterface.OnClickListener, DialogInterface.OnCancelListener, Runnable {
