@@ -23,6 +23,8 @@
 
 - compile 2.2 2017/07/04 更新zxing包，修复一些已知的bug
 
+- compile 2.3 2017/09/26 新增提示音、震动开关
+
 **使用说明**
 
 - 可打开默认二维码扫描页面
@@ -56,7 +58,7 @@ compile 'cn.yipianfengye.android:zxing-library:2.2'
     public void onCreate() {
         super.onCreate();
 
-        ZXingLibrary.initDisplayOpinion(this);
+        ZXingLibrary.getInstance().initDisplayOpinion(this);
     }
 ```
 
