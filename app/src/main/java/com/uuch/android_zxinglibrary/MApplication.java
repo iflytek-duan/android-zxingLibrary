@@ -14,6 +14,6 @@ public class MApplication extends Application{
     public void onCreate() {
         super.onCreate();
 
-        ZXingLibrary.initDisplayOpinion(this);
+        ZXingLibrary.getInstance().initDisplayOpinion(this);
     }
 }
