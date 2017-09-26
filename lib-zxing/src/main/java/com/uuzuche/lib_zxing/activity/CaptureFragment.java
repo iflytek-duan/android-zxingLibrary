@@ -40,9 +40,7 @@ public class CaptureFragment extends Fragment implements SurfaceHolder.Callback 
     private String characterSet;
     private InactivityTimer inactivityTimer;
     private MediaPlayer mediaPlayer;
-    private boolean playBeep;
-    private static final float BEEP_VOLUME = 0.10f;
-    private boolean vibrate;
+    private static final float BEEP_VOLUME = 0.10f;// 闹铃音量系数
     private SurfaceView surfaceView;
     private SurfaceHolder surfaceHolder;
     private CodeUtils.AnalyzeCallback analyzeCallback;
@@ -95,13 +93,7 @@ public class CaptureFragment extends Fragment implements SurfaceHolder.Callback 
         decodeFormats = null;
         characterSet = null;
 
-        playBeep = true;
-        AudioManager audioService = (AudioManager) getActivity().getSystemService(getActivity().AUDIO_SERVICE);
-        if (audioService.getRingerMode() != AudioManager.RINGER_MODE_NORMAL) {
-            playBeep = false;
-        }
         initBeepSound();
-        vibrate = true;
     }
 
     @Override
@@ -201,7 +193,7 @@ public class CaptureFragment extends Fragment implements SurfaceHolder.Callback 
     }
 
     private void initBeepSound() {
-        if (playBeep && mediaPlayer == null) {
+        if (isPlayBeep() && mediaPlayer == null) {
             // The volume on STREAM_SYSTEM is not adjustable, and users found it
             // too loud,
             // so we now play on the music stream.
@@ -227,10 +219,10 @@ public class CaptureFragment extends Fragment implements SurfaceHolder.Callback 
     private static final long VIBRATE_DURATION = 200L;
 
     private void playBeepSoundAndVibrate() {
-        if (playBeep && mediaPlayer != null) {
+        if (isPlayBeep() && mediaPlayer != null) {
             mediaPlayer.start();
         }
-        if (vibrate) {
+        if (isVibrate()) {
             Vibrator vibrator = (Vibrator) getActivity().getSystemService(getActivity().VIBRATOR_SERVICE);
             vibrator.vibrate(VIBRATE_DURATION);
         }
@@ -266,10 +258,34 @@ public class CaptureFragment extends Fragment implements SurfaceHolder.Callback 
     interface CameraInitCallBack {
         /**
          * Callback for Camera init result.
+         *
          * @param e If is's null,means success.otherwise Camera init failed with the Exception.
          */
         void callBack(Exception e);
     }
 
+
+    /**
+     * 判断是否启用闹铃，默认为是
+     *
+     * @return true:启用;false:不启用.
+     */
+    private boolean isPlayBeep() {
+        boolean playBeep = ZXingLibrary.getInstance().isPlayBeep();
+        AudioManager audioService = (AudioManager) getActivity().getSystemService(getActivity().AUDIO_SERVICE);
+        if (audioService.getRingerMode() != AudioManager.RINGER_MODE_NORMAL) {// 非声音模式下，禁止播放闹铃
+            playBeep = false;
+        }
+        return playBeep;
+    }
+
+    /**
+     * 是否启用震动，默认启用
+     *
+     * @return true:启用;false:不启用.
+     */
+    private boolean isVibrate() {
+        return ZXingLibrary.getInstance().isVibrate();
+    }
 
 }
