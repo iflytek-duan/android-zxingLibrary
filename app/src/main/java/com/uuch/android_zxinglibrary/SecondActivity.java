@@ -3,7 +3,6 @@ package com.uuch.android_zxinglibrary;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -76,4 +75,11 @@ public class SecondActivity extends BaseActivity {
             SecondActivity.this.finish();
         }
     };
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // 解除关联释放资源
+        getSupportFragmentManager().beginTransaction().remove(captureFragment).commitAllowingStateLoss();
+    }
 }
